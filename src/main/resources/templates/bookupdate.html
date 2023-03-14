@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{index::layout(~{::section})}"  >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Book Update</title>
+</head>
+<body>
+    <section>
+        <div class="container" style="border:1px solid black;">
+            <div class="row">       
+                <div class="col-md-7 offset-md-2">
+                  <div class="my-card ">
+                      
+                        <div class="container text-center">
+                        
+                    <h1 class="text-center">update Book Register Here!!</h1>
+        <form th:action="@{/updatebook/{id}(id=${bookupdate.id})}" method="post" th:object="${bookupdate}">
+            <div class="form-group mt-5">
+                <div class="row">
+                    <div class="col-md-7 offset-md-2">
+                        <div class="my-card">
+           
+                            <div class="form-group">
+                                <label for="exampleInputName">Name</label>
+                                 <input type="text" class="form-control" id="name" th:field="*{name}">
+                            </div>
+
+            <div class="form-group">
+              <label for="exampleInputText">Author</label>
+              <input type="text" class="form-control" id="author"
+              th:field="*{author}">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Price</label>
+                <input type="text" class="form-control" 
+                th:field="*{price}" id="price">
+              </div>
+           
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="reset" class="btn btn-primary">clear</button>
+          </form>
+          </div>
+        </div>
+    </div>
+    </div>
+</div> 
+</div>   
+</section>
+</body>
+</html>

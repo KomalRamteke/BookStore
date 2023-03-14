@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{index::layout(~{::section})}" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookList</title>
+</head>
+<body>
+  <section>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="e:${Booklist}">
+            <th scope="row" th:text="${e.id}">1</th>
+            <td th:text="${e.name}"></td>
+            <td th:text="${e.author}"></td>
+            <td th:text="${e.price}"></td>
+          <td>
+                <a th:href="@{/updatebook/{id} (id=${e.id})}" class="btn btn-primary">update</a>
+                <a th:href="@{/delete/{id} (id=${e.id})}" class="btn btn-danger">delete</a>
+                <a th:href="@{/detail/{id} (id=${e.id})}" class="btn btn-success">detail</a>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+</section>
+</body>
+</html>
